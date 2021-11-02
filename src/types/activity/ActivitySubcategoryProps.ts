@@ -1,4 +1,4 @@
-export default interface SubcategoryProps {
+export default interface ActivitySubcategoryProps {
   subcategory_id: string;
   name_zh: string;
   name_en: string;

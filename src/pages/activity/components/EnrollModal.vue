@@ -43,7 +43,7 @@ const handleToggleModal = () => {
       px-4
       lg:hidden
     "
-    :class="data === null ? 'hidden' : ''"
+    :class="props.data === null ? 'hidden' : ''"
     @click.self="handleToggleModal"
   >
     <div class="relative">

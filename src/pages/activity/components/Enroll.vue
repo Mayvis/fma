@@ -14,7 +14,7 @@ const activityPhotoUrl = computed(() => {
     return usePhotoPath(props.currentEvent.photo);
   }
 
-  return null;
+  return "";
 });
 
 const startDate = computed(() => {
@@ -22,7 +22,7 @@ const startDate = computed(() => {
     return dayjs(props.currentEvent.start_date);
   }
 
-  return null;
+  return dayjs();
 });
 
 const endDate = computed(() => {
@@ -30,7 +30,7 @@ const endDate = computed(() => {
     return dayjs(props.currentEvent.end_date);
   }
 
-  return null;
+  return dayjs();
 });
 
 const speakerAvatarUrl = (imagePath: string) => {
@@ -62,12 +62,12 @@ const speakerAvatarUrl = (imagePath: string) => {
 
         <li class="mb-2">
           日期 |
-          {{ startDate?.format("YYYY-MM-DD") }}
+          {{ startDate.format("YYYY-MM-DD") }}
         </li>
 
         <li class="mb-2">
-          時間 | {{ startDate?.format("HH:mm") }} -
-          {{ endDate?.format("HH:mm") }}
+          時間 | {{ startDate.format("HH:mm") }} -
+          {{ endDate.format("HH:mm") }}
         </li>
 
         <li class="mb-2">地點 | {{ currentEvent.location_zh }}</li>

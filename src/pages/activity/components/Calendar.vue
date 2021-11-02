@@ -3,7 +3,7 @@ import { computed, ref } from "vue";
 import Dropdown from "@/components/Dropdown.vue";
 import colors from "./utils/colors";
 import ActivityProps from "../../../types/activity/ActivityProps";
-import CategoryProps from "../../../types/activity/CategoryProps";
+import ActivityCategoryProps from "../../../types/activity/ActivityCategoryProps";
 import dayjs, { Dayjs } from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 dayjs.extend(isBetween);
@@ -11,7 +11,7 @@ dayjs.extend(isBetween);
 const props = defineProps<{
   data: ActivityProps[];
   currentEvent: ActivityProps | null;
-  categories: CategoryProps[];
+  categories: ActivityCategoryProps[];
   filterCategory: number;
   now: Dayjs;
   next: Dayjs;
@@ -37,9 +37,11 @@ const adjustedCategories = computed(() => {
 const currentCategory = computed(() => {
   if (props.filterCategory === 0) return null;
 
-  return adjustedCategories.value.find(
+  const result = adjustedCategories.value.find(
     ({ category_id }) => category_id === props.filterCategory
   );
+
+  return result ? result : null;
 });
 
 const monthList = [

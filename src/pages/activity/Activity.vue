@@ -8,10 +8,12 @@ import { getActivitiesByMonth } from "../../api/activities";
 import dayjs, { Dayjs } from "dayjs";
 import { getActivitiesCategories } from "../../api/activities-categories";
 import ActivityProps from "../../types/activity/ActivityProps";
+import ActivityCategoryProps from "../../types/activity/ActivityCategoryProps";
 
 const loading = ref(false);
 
-const activitiesCategories = ref([]);
+const activitiesCategories = ref<ActivityCategoryProps[]>([]);
+
 onMounted(async () => {
   activitiesCategories.value = await getActivitiesCategories();
 });

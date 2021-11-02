@@ -1,4 +1,4 @@
-import CategoryProps from "./CategoryProps";
+import ActivityCategoryProps from "./ActivityCategoryProps";
 import ActivitySpeakerProps from "./ActivitySpeakerProps";
 
 export default interface ActivityProps {
@@ -19,6 +19,6 @@ export default interface ActivityProps {
   created_at: string;
   updated_at: string;
   photo: string;
-  category: CategoryProps;
+  category: ActivityCategoryProps;
   speakers: ActivitySpeakerProps[] | [];
 }
