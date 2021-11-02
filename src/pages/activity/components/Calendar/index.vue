@@ -284,7 +284,7 @@ const handleRandomNumberArray = () => {
         h-160px
         hidden
         lg:block
-        bg-gray-100
+        bg-gray-100 bg-opacity-50
       "
     ></div>
 
@@ -299,6 +299,7 @@ const handleRandomNumberArray = () => {
         lg:min-h-auto
         h-auto
         lg:h-160px lg:w-1/7 lg:overflow-auto
+        bg-white bg-opacity-50
       "
     >
       <div class="day pt-1 pl-1 text-gray-400 text-sm">
@@ -350,7 +351,7 @@ const handleRandomNumberArray = () => {
           hidden
           lg:block lg:w-1/7
           h-160px
-          bg-gray-100
+          bg-gray-100 bg-opacity-50
         "
       ></div>
     </template>

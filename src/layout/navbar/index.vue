@@ -27,7 +27,9 @@ const navLinks = ref([
 </script>
 
 <template>
-  <nav class="flex justify-between items-stretch border-1 border-black">
+  <nav
+    class="flex justify-between items-stretch border-1 border-black bg-white"
+  >
     <router-link to="/" class="pl-2 py-1">
       <img src="src/assets/images/logo.svg" alt="Logo" />
     </router-link>

@@ -39,17 +39,7 @@ const speakerAvatarUrl = (imagePath: string) => {
 </script>
 
 <template>
-  <div
-    class="
-      enroll-component
-      h-full
-      p-6
-      bg-white
-      max-w-600px
-      lg:max-w-auto
-      relative
-    "
-  >
+  <div class="enroll-component h-full p-6 max-w-600px lg:max-w-auto relative">
     <template v-if="currentEvent !== null">
       <figure>
         <img :src="activityPhotoUrl" alt="Activity Image" />

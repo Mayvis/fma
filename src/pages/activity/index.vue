@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed } from "vue";
+import SkyBackground from "@/components/SkyBackground/index.vue";
 import Calendar from "./components/Calendar/index.vue";
 import Enroll from "./components/Enroll/index.vue";
 import Modal from "./components/EnrollModal/index.vue";
@@ -76,6 +77,16 @@ const handleClearCurrentEvent = () => {
 
 <template>
   <div class="activity">
+    <div class="relative">
+      <sky-background></sky-background>
+
+      <img
+        src="../../assets/images/activity/mask.svg"
+        alt="Background Mask"
+        class="fixed left-0 top-0 -z-998 max-w-1200px lg:max-w-1440px lg:w-auto"
+      />
+    </div>
+
     <div
       class="
         container
@@ -109,7 +120,9 @@ const handleClearCurrentEvent = () => {
           xl:w-3/12
           border-1 border-gray-500
           overflow-y-scroll
+          bg-white
         "
+        :class="currentEvent === null ? 'bg-opacity-50' : ''"
       >
         <enroll :loading="loading" :current-event="currentEvent"></enroll>
       </div>
@@ -119,7 +132,7 @@ const handleClearCurrentEvent = () => {
           :data="currentEvent"
           @clear-current-event="handleClearCurrentEvent"
         >
-          <div class="overflow-y-scroll max-h-80vh my-12">
+          <div class="overflow-y-scroll max-h-80vh my-12 bg-white">
             <enroll :loading="loading" :current-event="currentEvent"></enroll>
           </div>
         </modal>
