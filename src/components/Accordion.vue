@@ -2,7 +2,7 @@
 import { ref } from "vue";
 
 const props = defineProps<{
-  triggerName: string | "";
+  triggerName: string;
 }>();
 
 const open = ref(true);

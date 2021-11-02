@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import { onMounted, computed, ref } from "vue";
 
-const props = defineProps({
-  collapseLine: {
-    type: Number,
-    default: 3,
-    required: true,
-  },
-});
+const props = defineProps<{ collapseLine: number }>();
 
 const cssVars = computed(() => {
   return {
@@ -19,16 +13,6 @@ const collapseRef = ref<HTMLElement | null>(null);
 const childrenEl = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  handleCheckSlot();
-
-  childrenEl.value = (collapseRef.value as HTMLElement)
-    .firstElementChild as HTMLElement;
-
-  // Add slot collapse class
-  childrenEl.value.classList.add("collapse");
-});
-
-function handleCheckSlot() {
   if (
     !(
       (collapseRef.value as HTMLElement).firstElementChild instanceof
@@ -39,7 +23,13 @@ function handleCheckSlot() {
 
     throw new Error("Slot is not a HTMLElement");
   }
-}
+
+  childrenEl.value = (collapseRef.value as HTMLElement)
+    .firstElementChild as HTMLElement;
+
+  // Add slot collapse class
+  childrenEl.value.classList.add("collapse");
+});
 
 const toggle = ref(false);
 
