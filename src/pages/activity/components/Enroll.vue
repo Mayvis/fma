@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-import ActivityProps from "../../../../types/activity/ActivityProps";
-import usePhotoPath from "../../../use/usePhotoPath";
-import Accordion from "@/components/Accordion/index.vue";
+import ActivityProps from "../../../types/activity/ActivityProps";
+import usePhotoPath from "../../use/usePhotoPath";
+import Accordion from "@/components/Accordion.vue";
 import dayjs from "dayjs";
 
 const props = defineProps<{

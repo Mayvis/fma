@@ -10,7 +10,7 @@ const isOpen = ref(false);
       <slot name="trigger"></slot>
 
       <img
-        src="../../assets/images/common/arrow-down-black.svg"
+        src="../assets/images/common/arrow-down-black.svg"
         alt="Arrow Down"
         class="absolute right-2 top-1/2 transform cursor-pointer"
         :class="

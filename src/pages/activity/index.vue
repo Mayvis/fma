@@ -1,9 +1,15 @@
+<script lang="ts">
+export default {
+  name: "Activity",
+};
+</script>
+
 <script lang="ts" setup>
 import { ref, onMounted, computed } from "vue";
-import SkyBackground from "@/components/SkyBackground/index.vue";
-import Calendar from "./components/Calendar/index.vue";
-import Enroll from "./components/Enroll/index.vue";
-import Modal from "./components/EnrollModal/index.vue";
+import SkyBackground from "@/components/SkyBackground.vue";
+import Calendar from "./components/Calendar.vue";
+import Enroll from "./components/Enroll.vue";
+import Modal from "./components/EnrollModal.vue";
 import { getActivitiesByMonth } from "../../api/activities";
 import dayjs, { Dayjs } from "dayjs";
 import { getActivitiesCategories } from "../../api/activities-categories";

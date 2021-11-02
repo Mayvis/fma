@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  name: "Layout",
+};
+</script>
+
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
@@ -8,11 +14,9 @@ const key = computed(() => useRoute().path);
 </script>
 
 <template>
-  <section>
-    <app-navbar></app-navbar>
-    <router-view :key="key"></router-view>
-    <app-footer></app-footer>
-  </section>
+  <app-navbar></app-navbar>
+  <router-view :key="key"></router-view>
+  <app-footer></app-footer>
 </template>
 
 <style></style>

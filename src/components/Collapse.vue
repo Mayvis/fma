@@ -74,7 +74,7 @@ function handleRemoveCollapse() {
       >
         閱讀更多
         <img
-          src="../../assets/images/common/arrow-down.svg"
+          src="../assets/images/common/arrow-down.svg"
           alt="閱讀更多"
           class="px-1 w-16px"
         />

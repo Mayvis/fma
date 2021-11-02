@@ -41,7 +41,7 @@ const leave = (el: HTMLElement) => {
     @click="handleAccordion"
   >
     <img
-      src="../../assets/images/common/arrow-down-black.svg"
+      src="../assets/images/common/arrow-down-black.svg"
       alt="閱讀更多"
       class="px-1 mr-2 w-16px transform"
       :class="!open && '-rotate-90'"

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import Dropdown from "@/components/Dropdown/index.vue";
+import Dropdown from "@/components/Dropdown.vue";
 import colors from "./utils/colors";
-import ActivityProps from "../../../../types/activity/ActivityProps";
-import CategoryProps from "../../../../types/activity/CategoryProps";
+import ActivityProps from "../../../types/activity/ActivityProps";
+import CategoryProps from "../../../types/activity/CategoryProps";
 import dayjs, { Dayjs } from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 dayjs.extend(isBetween);

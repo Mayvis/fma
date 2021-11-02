@@ -1,6 +1,12 @@
+<script lang="ts">
+export default {
+  name: "About",
+};
+</script>
+
 <script setup lang="ts">
 import { ref } from "vue";
-import Collapse from "@/components/Collapse/index.vue";
+import Collapse from "@/components/Collapse.vue";
 import executor1 from "../../assets/images/about/executor-1.webp";
 import executor2 from "../../assets/images/about/executor-2.webp";
 

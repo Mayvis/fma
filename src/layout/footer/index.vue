@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  name: "AppFooter",
+};
+</script>
+
 <script setup lang="ts">
 import FooterManufacturer from "./components/FooterManufacturer.vue";
 import FooterCopyright from "./components/FooterCopyright.vue";
