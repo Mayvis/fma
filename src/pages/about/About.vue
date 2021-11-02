@@ -1,9 +1,3 @@
-<script lang="ts">
-export default {
-  name: "About",
-};
-</script>
-
 <script setup lang="ts">
 import { ref } from "vue";
 import Collapse from "@/components/Collapse.vue";

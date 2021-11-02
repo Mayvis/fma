@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Layout from "@/layout/index.vue";
-
-import About from "@/pages/about/index.vue";
+import Layout from "@/layout/Layout.vue";
 
 const routes = [
   {
@@ -11,17 +9,18 @@ const routes = [
     children: [
       {
         path: "about",
-        component: () => import("@/pages/about/index.vue"),
+        component: () => import("@/pages/about/About.vue"),
         name: "About",
       },
       {
         path: "activity",
-        component: () => import("@/pages/activity/index.vue"),
+        component: () => import("@/pages/activity/Activity.vue"),
         name: "Activity",
       },
       {
         path: "future-vision-lab",
-        component: () => import("@/pages/future-vision-lab/index.vue"),
+        component: () =>
+          import("@/pages/future-vision-lab/FutureVisionLab.vue"),
         name: "Future Vision Lab",
       },
     ],

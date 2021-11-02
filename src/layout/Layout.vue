@@ -1,14 +1,8 @@
-<script lang="ts">
-export default {
-  name: "Layout",
-};
-</script>
-
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import AppFooter from "./footer/index.vue";
-import AppNavbar from "./navbar/index.vue";
+import AppFooter from "./footer/AppFooter.vue";
+import AppNavbar from "./navbar/AppNavbar.vue";
 
 const key = computed(() => useRoute().path);
 </script>

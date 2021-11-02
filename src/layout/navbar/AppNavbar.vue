@@ -1,9 +1,3 @@
-<script lang="ts">
-export default {
-  name: "Navbar",
-};
-</script>
-
 <script setup lang="ts">
 import Hamburger from "./components/Hamburger.vue";
 import { ref } from "vue";

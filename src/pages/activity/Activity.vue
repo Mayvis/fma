@@ -1,9 +1,3 @@
-<script lang="ts">
-export default {
-  name: "Activity",
-};
-</script>
-
 <script lang="ts" setup>
 import { ref, onMounted, computed } from "vue";
 import SkyBackground from "@/components/SkyBackground.vue";
