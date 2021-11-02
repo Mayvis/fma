@@ -2,8 +2,8 @@
 import { computed, ref } from "vue";
 import Dropdown from "@/components/Dropdown/index.vue";
 import colors from "./utils/colors";
-import { ActivityProps } from "../../types/ActivityProps";
-import { CategoryProps } from "../../types/CategoryProps";
+import ActivityProps from "../../../../types/activity/ActivityProps";
+import CategoryProps from "../../../../types/activity/CategoryProps";
 import dayjs, { Dayjs } from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 dayjs.extend(isBetween);
@@ -284,7 +284,7 @@ const handleRandomNumberArray = () => {
         h-160px
         hidden
         lg:block
-        bg-gray-100 bg-opacity-50
+        bg-white bg-opacity-50
       "
     ></div>
 
@@ -351,7 +351,7 @@ const handleRandomNumberArray = () => {
           hidden
           lg:block lg:w-1/7
           h-160px
-          bg-gray-100 bg-opacity-50
+          bg-white bg-opacity-50
         "
       ></div>
     </template>

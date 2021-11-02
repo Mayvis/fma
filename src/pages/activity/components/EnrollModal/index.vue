@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ref, watch, watchEffect } from "vue";
-import { ActivityProps } from "../../types/ActivityProps";
+import { ref, watch } from "vue";
+import ActivityProps from "../../../../types/activity/ActivityProps";
 
 const emits = defineEmits(["clearCurrentEvent"]);
 
