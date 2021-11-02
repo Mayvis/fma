@@ -1,4 +1,4 @@
-export interface ActivitySpeakerProps {
+export default interface ActivitySpeakerProps {
   speaker_id: number;
   name_zh: string;
   name_en: string;

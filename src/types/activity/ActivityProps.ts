@@ -1,7 +1,7 @@
-import { CategoryProps } from "./CategoryProps";
-import { ActivitySpeakerProps } from "./ActivitySpeakerProps";
+import CategoryProps from "./CategoryProps";
+import ActivitySpeakerProps from "./ActivitySpeakerProps";
 
-export interface ActivityProps {
+export default interface ActivityProps {
   activity_id: string;
   live: boolean;
   live_stream_url: string | null;

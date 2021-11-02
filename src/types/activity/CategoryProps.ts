@@ -1,6 +1,6 @@
-import { SubcategoryProps } from "./SubcategoryProps";
+import SubcategoryProps from "./SubcategoryProps";
 
-export interface CategoryProps {
+export default interface CategoryProps {
   category_id: number;
   name_zh: string;
   name_en: string;
