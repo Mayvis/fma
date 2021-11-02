@@ -46,7 +46,7 @@ const navLinks = ref([
 
 <style lang="scss" scoped>
 .nav-link {
-  @apply w-37 h-full pl-1 text-sm flex items-center justify-start hover:text-white hover:bg-black;
+  @apply w-37 h-full pl-1 text-sm flex items-center justify-start hover:text-white hover:bg-black font-podkova;
 
   &.router-link-exact-active {
     @apply bg-black text-white;
