@@ -10,4 +10,17 @@ import "@/styles/theme.scss";
 import "virtual:windi.css";
 import "virtual:windi-devtools";
 
-createApp(App).use(VueRouter).mount("#app");
+const app = createApp(App);
+
+import usePhotoPath from "./pages/use/usePhotoPath";
+app.config.globalProperties.$usePhotoPath = usePhotoPath;
+
+// give typescript hint for vue template
+// doc:https://v3.vuejs.org/guide/typescript-support.html#using-with-options-api
+declare module "@vue/runtime-core" {
+  export interface ComponentCustomProperties {
+    $usePhotoPath: (path: string) => string;
+  }
+}
+
+app.use(VueRouter).mount("#app");
