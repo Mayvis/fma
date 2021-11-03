@@ -42,7 +42,7 @@ const navLinks = ref([
     "
   >
     <router-link to="/" class="pl-2 py-1">
-      <img src="src/assets/images/logo.svg" alt="Logo" />
+      <img src="../../assets/images/logo.svg" alt="Logo" />
     </router-link>
 
     <ul class="hidden lg:flex">

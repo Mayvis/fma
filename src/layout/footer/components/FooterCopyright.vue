@@ -16,14 +16,14 @@
       <router-link to="/" class="mx-2">
         <img
           class="self-center"
-          src="src/assets/images/footer-icon/footer-facebook.svg"
+          src="../../../assets/images/footer-icon/footer-facebook.svg"
           alt="facebook"
         />
       </router-link>
       <router-link to="/" class="mr-2">
         <img
           class="self-center"
-          src="src/assets/images/footer-icon/footer-instagram.svg"
+          src="../../../assets/images/footer-icon/footer-instagram.svg"
           alt="instagram"
         />
       </router-link>
