@@ -7,3 +7,10 @@ export function getWorks(params: { limit: number; search: string }) {
     params,
   });
 }
+
+export function getWork(workId: string) {
+  return request({
+    url: `api/v1/works/${workId}`,
+    method: "GET",
+  });
+}
