@@ -13,7 +13,7 @@ const props = defineProps<{ works: WorkProps }>();
     >
       <div
         class="work"
-        :style="{ backgroundImage: `url(${$usePhotoPath(photo_1)})` }"
+        :style="{ backgroundImage: `url(${$getPhotoPath(photo_1)})` }"
       >
         <div class="text-white font-podkova text-sm mb-2">
           {{ work_en.title }}

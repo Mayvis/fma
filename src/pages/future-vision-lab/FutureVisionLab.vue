@@ -1,35 +1,35 @@
 <script lang="ts" setup>
-import { ref, onMounted, computed } from "vue";
-import Dropdown from "@/components/Dropdown.vue";
+import { ref, onMounted } from "vue";
+import SidebarMenu from "./components/SidebarMenu.vue";
 import Works from "./components/Works.vue";
 import Introduction from "./components/Introduction.vue";
 import Schedule from "./components/Schedule.vue";
 import { getWorks } from "../../api/works";
 import WorkProps from "../../types/work/WorkProps";
 
-const works = ref<WorkProps[]>([]);
+type contentProps =
+  | "exhibition"
+  | "futureVisionLab"
+  | "introduction"
+  | "schedule";
 
-const searchParams = ref({ limit: 100, search: "" });
+const fvlWorks = ref<WorkProps[]>([]);
+
+const searchParams = ref({ limit: 100, search: "fvl" });
 
 onMounted(() => {
   handleGetWorks();
 });
 
 const handleGetWorks = async () => {
-  works.value = await getWorks(searchParams.value);
+  fvlWorks.value = await getWorks(searchParams.value);
 };
 
-const fvlWorks = computed(() => {
-  if (works.value.length === 0) return [];
+const currentContent = ref<contentProps>("exhibition");
 
-  return works.value.filter(
-    ({ category }) =>
-      category.name_zh.toLowerCase().includes("fvl") ||
-      category.name_en.toLowerCase().includes("fvl")
-  );
-});
-
-const currentContent = ref("exhibition");
+const handleChangeCurrentContent = (content: contentProps) => {
+  currentContent.value = content;
+};
 </script>
 
 <template>
@@ -37,8 +37,8 @@ const currentContent = ref("exhibition");
     <transition-group name="slide-fade">
       <template
         v-if="
-          currentContent === 'exhibition' ||
-          currentContent === 'futureVisionLab'
+          currentContent === 'futureVisionLab' ||
+          currentContent === 'exhibition'
         "
       >
         <img
@@ -72,73 +72,11 @@ const currentContent = ref("exhibition");
         'justify-between lg:max-w-4/5'
       "
     >
-      <div class="sidebar bottom-0 font-podkova z-100 w-full lg:w-248px">
-        <div class="bg-white border-1 border-black pl-4 py-3">
-          <div
-            class="relative z-1"
-            :class="currentContent === 'exhibition' && 'decoration'"
-          >
-            <button
-              class="pt-4 pb-4 outline-none focus:outline-none z-2"
-              @click="currentContent = 'exhibition'"
-            >
-              全部
-            </button>
-          </div>
-
-          <dropdown
-            arrow-position="left"
-            @click="currentContent = 'futureVisionLab'"
-          >
-            <template v-slot:trigger>
-              <div
-                class="relative z-1 py-5"
-                :class="currentContent === 'futureVisionLab' && 'decoration'"
-              >
-                <button class="pl-5 outline-none focus:outline-none block">
-                  Future Vision Lab
-                </button>
-              </div>
-            </template>
-
-            <div class="py-3">
-              <div
-                v-for="({ work_zh }, index) in fvlWorks"
-                :key="index"
-                class="p-2"
-              >
-                <button
-                  class="
-                    flex
-                    justify-start
-                    items-center
-                    text-sm
-                    outline-none
-                    focus:outline-none
-                  "
-                >
-                  <span class="hover:bg-black hover:text-white">
-                    {{ work_zh.title }}
-                  </span>
-                </button>
-              </div>
-            </div>
-          </dropdown>
-        </div>
-
-        <button
-          class="custom-button menu-background"
-          @click="currentContent = 'schedule'"
-        >
-          展演日程
-        </button>
-        <button
-          class="custom-button menu-background"
-          @click="currentContent = 'introduction'"
-        >
-          計畫介紹
-        </button>
-      </div>
+      <sidebar-menu
+        :fvl-works="fvlWorks"
+        :current-content="currentContent"
+        @change-current-content="handleChangeCurrentContent"
+      ></sidebar-menu>
 
       <transition name="fade" mode="out-in">
         <works
@@ -146,7 +84,7 @@ const currentContent = ref("exhibition");
             currentContent === 'exhibition' ||
             currentContent === 'futureVisionLab'
           "
-          :works="currentContent === 'exhibition' ? works : fvlWorks"
+          :works="fvlWorks"
         ></works>
 
         <schedule v-else-if="currentContent === 'schedule'"></schedule>
@@ -157,43 +95,4 @@ const currentContent = ref("exhibition");
   </div>
 </template>
 
-<style lang="scss" scoped>
-.decoration {
-  &::before {
-    @apply absolute -left-10px top-0 w-full h-full mb-2 -z-1 transform -translate-x-4;
-
-    content: "";
-    background: linear-gradient(
-      91.9deg,
-      #bdbdbd 2.61%,
-      #a2a2a2 49.06%,
-      #e7e7e7 73.1%,
-      #8b8b8b 97.74%
-    );
-    animation: slide 0.4s linear;
-
-    @keyframes slide {
-      0% {
-        left: 10%;
-      }
-      100% {
-        left: -10;
-      }
-    }
-  }
-}
-
-.custom-button {
-  @apply w-full lg:my-4 py-4 border-1 border-black flex justify-center items-center outline-none focus:outline-none;
-}
-
-.menu-background {
-  background: linear-gradient(
-    91.9deg,
-    #bdbdbd 2.61%,
-    #a2a2a2 49.06%,
-    #e7e7e7 73.1%,
-    #8b8b8b 97.74%
-  );
-}
-</style>
+<style lang="scss" scoped></style>
