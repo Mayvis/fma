@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import Dropdown from "@/components/Dropdown.vue";
 import Works from "./components/Works.vue";
 import Introduction from "./components/Introduction.vue";
@@ -8,23 +8,26 @@ import { getWorks } from "../../api/works";
 import WorkProps from "../../types/work/WorkProps";
 
 const works = ref<WorkProps[]>([]);
-const fvlWorks = ref<WorkProps[]>([]);
 
-const searchParams = ref({ limit: 20, search: "" });
-const searchFvlParams = ref({ limit: 20, search: "fvl" });
+const searchParams = ref({ limit: 100, search: "" });
 
 onMounted(() => {
   handleGetWorks();
-  handleGetFvlWorks();
 });
 
 const handleGetWorks = async () => {
   works.value = await getWorks(searchParams.value);
 };
 
-const handleGetFvlWorks = async () => {
-  fvlWorks.value = await getWorks(searchFvlParams.value);
-};
+const fvlWorks = computed(() => {
+  if (works.value.length === 0) return [];
+
+  return works.value.filter(
+    ({ category }) =>
+      category.name_zh.toLowerCase().includes("fvl") ||
+      category.name_en.toLowerCase().includes("fvl")
+  );
+});
 
 const currentContent = ref("exhibition");
 </script>
