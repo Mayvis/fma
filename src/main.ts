@@ -12,14 +12,17 @@ import "virtual:windi-devtools";
 
 const app = createApp(App);
 
-import usePhotoPath from "./pages/use/usePhotoPath";
-app.config.globalProperties.$usePhotoPath = usePhotoPath;
+import getPhotoPath from "./utils/getPhotoPath";
+import slugify from "./utils/slugify";
+app.config.globalProperties.$getPhotoPath = getPhotoPath;
+app.config.globalProperties.$slugify = slugify;
 
 // give typescript hint for vue template
 // doc:https://v3.vuejs.org/guide/typescript-support.html#using-with-options-api
 declare module "@vue/runtime-core" {
   export interface ComponentCustomProperties {
-    $usePhotoPath: (path: string) => string;
+    $getPhotoPath: (path: string) => string;
+    $slugify: (text: string, separator: string) => string;
   }
 }
 

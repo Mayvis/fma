@@ -23,6 +23,11 @@ const routes = [
           import("@/pages/future-vision-lab/FutureVisionLab.vue"),
         name: "Future Vision Lab",
       },
+      {
+        path: "future-vision-lab/:id/detail/:slug",
+        component: () => import("@/pages/future-vision-lab/WorkDetail.vue"),
+        name: "Future Vision Lab Work Detail",
+      },
     ],
   },
 ];

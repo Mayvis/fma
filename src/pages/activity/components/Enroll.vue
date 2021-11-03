@@ -29,7 +29,7 @@ const endDate = computed(() => {
   <div class="enroll-component h-full p-6 max-w-600px lg:max-w-auto relative">
     <template v-if="currentEvent !== null">
       <figure>
-        <img :src="$usePhotoPath(currentEvent.photo)" alt="Activity Image" />
+        <img :src="$getPhotoPath(currentEvent.photo)" alt="Activity Image" />
       </figure>
 
       <h2 class="text-2xl py-4 font-bold font-noto">
@@ -88,7 +88,7 @@ const endDate = computed(() => {
             >
               <div class="flex items-center mb-3">
                 <figure class="w-3/12">
-                  <img :src="$usePhotoPath(avatar_url)" alt="avatar" />
+                  <img :src="$getPhotoPath(avatar_url)" alt="avatar" />
                 </figure>
                 <p class="w-9/12 ml-3">{{ name_zh }}</p>
               </div>
