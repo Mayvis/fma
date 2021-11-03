@@ -195,7 +195,7 @@ const handleRandomNumberArray = () => {
     </div>
 
     <!-- category button group dropdown menu -->
-    <dropdown class="lg:hidden">
+    <dropdown class="lg:hidden" arrow-position="right">
       <template v-slot:trigger>
         <button
           class="
