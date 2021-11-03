@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import ActivityProps from "../../../types/activity/ActivityProps";
-import usePhotoPath from "../../use/usePhotoPath";
 import Accordion from "@/components/Accordion.vue";
 import dayjs from "dayjs";
 
@@ -9,20 +8,12 @@ const props = defineProps<{
   currentEvent: ActivityProps | null;
 }>();
 
-const activityPhotoUrl = computed(() => {
-  if (props.currentEvent !== null) {
-    return usePhotoPath(props.currentEvent.photo);
-  }
-
-  return "";
-});
-
 const startDate = computed(() => {
   if (props.currentEvent !== null) {
     return dayjs(props.currentEvent.start_date);
   }
 
-  return dayjs();
+  return null;
 });
 
 const endDate = computed(() => {
@@ -30,19 +21,15 @@ const endDate = computed(() => {
     return dayjs(props.currentEvent.end_date);
   }
 
-  return dayjs();
+  return null;
 });
-
-const speakerAvatarUrl = (imagePath: string) => {
-  return usePhotoPath(imagePath);
-};
 </script>
 
 <template>
   <div class="enroll-component h-full p-6 max-w-600px lg:max-w-auto relative">
     <template v-if="currentEvent !== null">
       <figure>
-        <img :src="activityPhotoUrl" alt="Activity Image" />
+        <img :src="$usePhotoPath(currentEvent.photo)" alt="Activity Image" />
       </figure>
 
       <h2 class="text-2xl py-4 font-bold font-noto">
@@ -62,12 +49,12 @@ const speakerAvatarUrl = (imagePath: string) => {
 
         <li class="mb-2">
           日期 |
-          {{ startDate.format("YYYY-MM-DD") }}
+          {{ startDate?.format("YYYY-MM-DD") }}
         </li>
 
         <li class="mb-2">
-          時間 | {{ startDate.format("HH:mm") }} -
-          {{ endDate.format("HH:mm") }}
+          時間 | {{ startDate?.format("HH:mm") }} -
+          {{ endDate?.format("HH:mm") }}
         </li>
 
         <li class="mb-2">地點 | {{ currentEvent.location_zh }}</li>
@@ -101,7 +88,7 @@ const speakerAvatarUrl = (imagePath: string) => {
             >
               <div class="flex items-center mb-3">
                 <figure class="w-3/12">
-                  <img :src="speakerAvatarUrl(avatar_url)" alt="avatar" />
+                  <img :src="$usePhotoPath(avatar_url)" alt="avatar" />
                 </figure>
                 <p class="w-9/12 ml-3">{{ name_zh }}</p>
               </div>
