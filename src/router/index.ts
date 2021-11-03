@@ -21,12 +21,12 @@ const routes = [
         path: "future-vision-lab",
         component: () =>
           import("@/pages/future-vision-lab/FutureVisionLab.vue"),
-        name: "Future Vision Lab",
+        name: "FutureVisionLab",
       },
       {
         path: "future-vision-lab/:id/detail/:slug",
         component: () => import("@/pages/future-vision-lab/WorkDetail.vue"),
-        name: "Future Vision Lab Work Detail",
+        name: "FutureVisionLabWorkDetail",
       },
     ],
   },
