@@ -3,6 +3,7 @@ import VueRouter from "./router";
 import App from "./App.vue";
 
 import "@/styles/index.scss";
+import "@/styles/custom.scss";
 import "@/styles/theme.scss";
 
 // windiCSS part
