@@ -28,7 +28,18 @@ const navLinks = ref([
 
 <template>
   <nav
-    class="flex justify-between items-stretch border-1 border-black bg-white"
+    class="
+      fixed
+      top-0
+      left-0
+      w-full
+      flex
+      justify-between
+      items-stretch
+      border-1 border-black
+      bg-white
+      z-9999
+    "
   >
     <router-link to="/" class="pl-2 py-1">
       <img src="src/assets/images/logo.svg" alt="Logo" />
