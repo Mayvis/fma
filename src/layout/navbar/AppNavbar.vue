@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import Hamburger from "./components/Hamburger.vue";
 import { ref } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+console.log(route);
 
 const navLinks = ref([
   {
@@ -46,9 +50,18 @@ const navLinks = ref([
     </router-link>
 
     <ul class="hidden lg:flex">
-      <li class="block" v-for="({ name, url }, index) in navLinks" :key="index">
-        <router-link :to="url" class="nav-link">{{ name }}</router-link>
-      </li>
+      <template v-for="({ name, url }, index) in navLinks" :key="index">
+        <router-link
+          :to="url"
+          class="nav-link"
+          :class="
+            route.path.startsWith(url) &&
+            url !== '/' &&
+            'router-partial-exact-active'
+          "
+          >{{ name }}</router-link
+        >
+      </template>
     </ul>
 
     <hamburger></hamburger>
@@ -59,7 +72,8 @@ const navLinks = ref([
 .nav-link {
   @apply w-37 h-full pl-1 text-sm flex items-center justify-start hover:text-white hover:bg-black font-podkova;
 
-  &.router-link-exact-active {
+  &.router-link-exact-active,
+  &.router-partial-exact-active {
     @apply bg-black text-white;
   }
 }
