@@ -60,12 +60,15 @@ const monthList = [
 
 const currentStatus = ref<"now" | "next">("now");
 
-const current = computed(() => ({
-  month: props[currentStatus.value].get("month"),
-  totalDate: props[currentStatus.value].daysInMonth(),
-  date: props[currentStatus.value].get("date"),
-  day: props[currentStatus.value].get("day"),
-}));
+const current = computed(() => {
+  const c = props[currentStatus.value].startOf("month");
+  return {
+    month: c.get("month"),
+    totalDate: c.daysInMonth(),
+    date: c.get("date"),
+    day: c.get("day"),
+  };
+});
 
 const handleChangeMonth = (month: "now" | "next") => {
   currentStatus.value = month;
@@ -276,7 +279,7 @@ const handleRandomNumberArray = () => {
   <div class="flex flex-wrap border-t-1 border-r-1 border-gray-500">
     <!-- Calendar compensate part -->
     <div
-      v-for="d in current.day - 1"
+      v-for="d in current.day"
       :key="d"
       class="
         border-b-1 border-l-1 border-gray-500
@@ -343,9 +346,9 @@ const handleRandomNumberArray = () => {
     </div>
 
     <!-- Calendar compensate part -->
-    <template v-if="7 - ((current.totalDate + current.day - 1) % 7) !== 7">
+    <template v-if="7 - ((current.totalDate + current.day) % 7) !== 7">
       <div
-        v-for="d in 7 - ((current.totalDate + current.day - 1) % 7)"
+        v-for="d in 7 - ((current.totalDate + current.day) % 7)"
         :key="d"
         class="
           border-b-1 border-l-1 border-gray-500
