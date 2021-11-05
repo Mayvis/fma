@@ -22,7 +22,7 @@ function handleDropdown() {
 
 <style lang="scss" scoped>
 .hamburger {
-  outline: none;
+  @apply outline-none;
 
   &.trigger {
     .hidden {
