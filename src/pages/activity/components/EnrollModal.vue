@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
-import ActivityProps from "../../../types/activity/ActivityProps";
+import { ActivityProps } from "../../../types/activity";
 
 const emits = defineEmits(["clearCurrentEvent"]);
 
@@ -28,7 +28,6 @@ const handleToggleModal = () => {
   <div
     v-if="isOpen"
     class="
-      modal-component
       fixed
       top-0
       left-0

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import WorkProps from "../../../types/work/WorkProps";
+import { WorkProps } from "../../../types/work";
 
 const props = defineProps<{ works: WorkProps }>();
 </script>

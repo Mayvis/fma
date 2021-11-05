@@ -2,8 +2,7 @@
 import { computed, ref } from "vue";
 import Dropdown from "@/components/Dropdown.vue";
 import colors from "./utils/colors";
-import ActivityProps from "../../../types/activity/ActivityProps";
-import ActivityCategoryProps from "../../../types/activity/ActivityCategoryProps";
+import { ActivityProps, ActivityCategoryProps } from "../../../types/activity";
 import dayjs, { Dayjs } from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 dayjs.extend(isBetween);

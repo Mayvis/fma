@@ -1,12 +1,7 @@
 <script setup lang="ts">
-interface Iprops {
-  groupZhName: string;
-  groupEnName: string;
-  workEnName: string;
-  workZhName: string;
-  time: number;
-}
-const props = defineProps<{ contents: Iprops[] }>();
+import { WorkProps } from "../../../types/work";
+
+const props = defineProps<{ contents: Array<keyof WorkProps> }>();
 </script>
 
 <template>

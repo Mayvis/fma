@@ -5,7 +5,7 @@ import Works from "./components/Works.vue";
 import Introduction from "./components/Introduction.vue";
 import Schedule from "./components/Schedule.vue";
 import { getWorks } from "../../api/works";
-import WorkProps from "../../types/work/WorkProps";
+import { WorkProps } from "../../types/work";
 
 type contentProps =
   | "exhibition"

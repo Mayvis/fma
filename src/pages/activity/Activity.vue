@@ -7,8 +7,7 @@ import Modal from "./components/EnrollModal.vue";
 import { getActivitiesByMonth } from "../../api/activities";
 import dayjs, { Dayjs } from "dayjs";
 import { getActivitiesCategories } from "../../api/activities-categories";
-import ActivityProps from "../../types/activity/ActivityProps";
-import ActivityCategoryProps from "../../types/activity/ActivityCategoryProps";
+import { ActivityProps, ActivityCategoryProps } from "../../types/activity";
 
 const loading = ref(false);
 

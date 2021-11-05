@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Dropdown from "@/components/Dropdown.vue";
 import WorkProps from "../../../types/work/WorkProps";
+import { WorkProps } from "../../../types/work";
 
 const emits = defineEmits(["changeCurrentContent"]);
 
