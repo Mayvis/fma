@@ -35,6 +35,9 @@ const routes = [
 const VueRouter = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 export default VueRouter;
