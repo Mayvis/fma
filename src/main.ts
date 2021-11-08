@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import VueRouter from "./router";
 import App from "./App.vue";
 
+// CSS basic
 import "@/styles/index.scss";
 import "@/styles/custom.scss";
 import "@/styles/theme.scss";
@@ -12,6 +13,7 @@ import "virtual:windi-devtools";
 
 const app = createApp(App);
 
+// global register event
 import getPhotoPath from "./utils/getPhotoPath";
 import slugify from "./utils/slugify";
 app.config.globalProperties.$getPhotoPath = getPhotoPath;
