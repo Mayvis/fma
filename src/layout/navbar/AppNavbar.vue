@@ -8,11 +8,7 @@ const route = useRoute();
 const navLinks = ref([
   {
     name: "藝術家",
-    url: "/",
-  },
-  {
-    name: "作品",
-    url: "/",
+    url: "/artist",
   },
   {
     name: "FUTURE VISION LAB",
