@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Dropdown from "@/components/Dropdown.vue";
-import WorkProps from "../../../types/work/WorkProps";
 import { WorkProps } from "../../../types/work";
 
 const emits = defineEmits(["changeCurrentContent"]);
@@ -53,11 +52,15 @@ const handleChangeCurrentContent = (content: string) => {
 
         <div class="py-3">
           <div
-            v-for="({ work_zh }, index) in props.fvlWorks"
+            v-for="({ work_zh, work_id, work_en }, index) in props.fvlWorks"
             :key="index"
             class="p-2"
           >
-            <button
+            <router-link
+              :to="{
+                name: 'FutureVisionLabWorkDetail',
+                params: { id: work_id, slug: $slugify(work_en.title, '-') },
+              }"
               class="
                 flex
                 justify-start
@@ -70,7 +73,7 @@ const handleChangeCurrentContent = (content: string) => {
               <span class="hover:bg-black hover:text-white">
                 {{ work_zh.title }}
               </span>
-            </button>
+            </router-link>
           </div>
         </div>
       </dropdown>

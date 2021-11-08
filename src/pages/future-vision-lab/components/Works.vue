@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import WorkProps from "../../../types/work/WorkProps";
 import { WorkProps } from "../../../types/work";
 
 const props = defineProps<{ works: WorkProps }>();
@@ -8,11 +7,15 @@ const props = defineProps<{ works: WorkProps }>();
 <template>
   <div class="w-full lg:w-3/4 pl-4 lg:pl-3 flex flex-wrap">
     <div
-      v-for="({ photo_1, work_zh, work_en }, index) in props.works"
+      v-for="({ photo_1, work_zh, work_en, work_id }, index) in props.works"
       :key="index"
       class="w-1/2 pr-4 pb-4"
     >
-      <div
+      <router-link
+        :to="{
+          name: 'FutureVisionLabWorkDetail',
+          params: { id: work_id, slug: $slugify(work_en.title, '-') },
+        }"
         class="work"
         :style="{ backgroundImage: `url(${$getPhotoPath(photo_1)})` }"
       >
@@ -22,7 +25,7 @@ const props = defineProps<{ works: WorkProps }>();
         <div class="text-white font-podkova text-sm">
           {{ work_zh.title }}
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
