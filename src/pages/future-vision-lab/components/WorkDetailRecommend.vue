@@ -15,7 +15,7 @@ const containPhotoWorks = computed(() => {
 </script>
 
 <template>
-  <div class="hidden lg:block">
+  <div class="hidden lg:block mx-8">
     <carousel :items-to-show="3">
       <slide
         v-for="(
