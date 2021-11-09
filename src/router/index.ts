@@ -8,6 +8,11 @@ const routes = [
     name: "Layout",
     children: [
       {
+        path: "",
+        component: () => import("@/pages/artist/Artist.vue"),
+        name: "Artist",
+      },
+      {
         path: "artist",
         component: () => import("@/pages/artist/Artist.vue"),
         name: "Artist",
